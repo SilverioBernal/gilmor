@@ -1,0 +1,116 @@
+ 
+.menu_block  {
+	position: relative;
+	position: absolute;
+	/*background-color: #32B1F8;*/
+    background-color:#666666;
+	z-index: 999;
+	min-width: 170px;
+	border-right: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+	padding-left: 17px;
+	padding-bottom: 20px;
+
+
+    /* Required for IE 5, 6, 7 */
+	/* ...or something to trigger hasLayout, like zoom: 1; */
+	/*width: 100%;*/ 
+		
+	/* Theoretically for IE 8 & 9 (more valid) */	
+	/* ...but not required as filter works too */
+	/* should come BEFORE filter */
+	-ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
+	
+	/* This works in IE 8 & 9 too */
+	/* ... but also 5, 6, 7 */
+	filter: alpha(opacity=80);
+	
+	/* Older than Firefox 0.9 */
+	-moz-opacity:0.8;
+	
+	/* Safari 1.x (pre WebKit!) */
+	-khtml-opacity: 0.8;
+    
+	/* Modern!
+	/* Firefox 0.9+, Safari 2?, Chrome any?
+	/* Opera 9+, IE 9+ */
+	opacity: 0.8;
+
+}
+
+nav>.sf-menu {
+	float: right;
+	min-width: 95px;
+	padding-top: 22px;
+}
+nav{ position:relative;padding: 0px 0 0 0;}
+.sf-menu ul {position:absolute;top:-999px; display:none;/* left offset of submenus need to match (see below) */}
+.sf-menu li {float:left;position:relative; }
+.sf-menu>li {
+	float: none;
+	position: relative;
+
+}
+
+.sf-menu>li+li {
+	margin-top: 11px;
+}
+
+
+.sf-menu>li>a{
+	text-transform: uppercase;
+	font-size: 16px;
+	font-family: 'Dosis', sans-serif;
+	color: #fff;
+	position: relative;
+	line-height: 16px;
+	z-index: 999;
+	position: relative;
+}
+
+
+.sf-menu>li.sfHover>a, .sf-menu>li.current>a, .sf-menu>li:hover>a:hover {
+	color: #000;
+}
+
+
+
+/*================================>> 2 Level <<========================================*/
+.sf-menu li ul,.sf-menu li.sfHover>ul{
+	top:-28px;
+	left: 114px;
+
+	width: 141px;
+	z-index: 999; 
+	padding-top: 28px;
+	padding-bottom: 23px;
+	background-color: #ffffff;
+}
+
+
+.sf-menu li ul li{
+	padding-left: 18px;
+	float: none !important; 
+	margin-bottom: 3px;
+
+
+}
+
+
+
+
+.sf-menu li ul li a{
+	text-transform: uppercase;
+	font: 16px/16px 'Dosis', sans-serif;
+;
+	position: relative;
+	color: #000;
+
+}
+
+.sf-menu li li a:hover, 
+.sf-menu li.sfHover li.sfHover>a {  
+	color: #ec0606;
+
+}
+

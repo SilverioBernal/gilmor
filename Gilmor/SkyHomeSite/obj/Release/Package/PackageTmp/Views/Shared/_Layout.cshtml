@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Sky Homes</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    
+@*    @Styles.Render("~/Content/css")*@
+    @*@Scripts.Render("~/bundles/modernizr")*@
+
+    @Styles.Render("~/css/style.css")
+    @Styles.Render("~/css/camera.css")
+        
+    <!--[if !IE]>-->
+    @Styles.Render("~/css/blur.css")
+    <!--<![endif]-->
+    @Scripts.Render("~/js/jquery.js")
+    @Scripts.Render("~/js/jquery-migrate-1.1.1.js")
+    @Scripts.Render("~/js/superfish.js")
+    @Scripts.Render("~/js/jquery.equalheights.js")
+    @Scripts.Render("~/js/jquery.easing.1.3.js")
+    @Scripts.Render("~/js/jquery.ui.totop.js")
+    @Scripts.Render("~/js/camera.js")
+   
+
+   @* <script src="js/jquery.js"></script>
+    <script src="js/jquery-migrate-1.1.1.js"></script>
+    <script src="js/superfish.js"></script>
+    <script src="js/jquery.equalheights.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.ui.totop.js"></script>
+    <script src="js/camera.js"></script>*@
+
+    <!--[if (gt IE 9)|!(IE)]><!-->
+     @Scripts.Render("~/js/jquery.mobile.customized.min.js")
+    <!--<![endif]-->
+    <script>
+        $(document).ready(function () {
+            jQuery('#camera_wrap').camera({
+                loader: false,
+                pagination: false,
+                thumbnails: false,
+                height: '48.82978723404255%',
+                caption: false,
+                navigation: true,
+                fx: 'mosaic'
+            });
+
+        });
+
+
+        $(document).ready(function () {
+            $().UItoTop({ easingType: 'easeOutQuart' });
+        });
+
+
+        $(function () {
+
+            var $container = $('#ib-container'),
+              $articles = $container.children('article'),
+              timeout;
+
+            $articles.on('mouseenter', function (event) {
+
+                var $article = $(this);
+                clearTimeout(timeout);
+                timeout = setTimeout(function () {
+
+                    if ($article.hasClass('active')) return false;
+
+                    $articles.not($article.removeClass('blur').addClass('active'))
+                         .removeClass('active')
+                         .addClass('blur');
+
+                }, 65);
+
+            });
+
+            $container.on('mouseleave', function (event) {
+
+                clearTimeout(timeout);
+                $articles.removeClass('active blur');
+
+            });
+
+        });
+    </script>
+    <!--[if lt IE 8]>
+       <div style=' clear: both; text-align:center; position: relative;'>
+         <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+           <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+         </a>
+      </div>
+    <![endif]-->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+      <link rel="stylesheet" media="screen" href="content/ie.css">
+
+    <![endif]-->
+</head>
+<body>
+    <header>
+        <div class="container_12">
+            <div class="grid_12">
+                <div class="menu_block">
+                    <div>
+                        <a href="index.html"><img src="@Url.Content("~/content/img/logo.png")" alt="Gerald Harris attorney at law" style="height: 90px;"></a>
+                        @*<nav class="">
+                            <ul class="sf-menu">
+                                <li class="current"><a href="index.html">Inicio</a></li>
+                                
+                                <li><a href="index-3.html">Contacto</a></li>
+                            </ul>
+                        </nav>*@
+                    </div>
+                    <div class="clear"></div>
+                </div>
+
+                <div class="slider_wrapper">
+                    <div id="camera_wrap" class="">                                                
+                        <div data-src="@Url.Content("~/images/s1.png")"></div> 
+                        <div data-src="@Url.Content("~/images/s2.png")"></div>
+                        <div data-src="@Url.Content("~/images/s3.png")"></div>
+                    </div>
+
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </header>
+
+
+
+    <!--=======content================================-->
+
+    <div class="content">
+        <div class="ic">
+
+        </div>
+        <div class="container_12">            
+                @RenderBody()            
+        </div>
+    </div>
+    <!--==============================footer=================================-->
+
+    <footer>
+        <div class="container_12">
+            <div class="grid_12">
+                @*<div class="copy">*@
+                    Extintores GILMOR  &copy; 2015
+                    <br>
+                    Powered by <a href="http://www.orkidea.co/" target="_blank" rel="nofollow">Ork<span style="color:red;">i</span>dea</a><br>                    
+                @*</div>*@
+@*                <div class="socials">
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                    <a href="#"></a>
+                </div>*@
+            </div>
+            <div class="clear"></div>
+        </div>
+
+    </footer>
+
+</body>
+</html>
+
+@*
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>*@
